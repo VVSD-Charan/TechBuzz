@@ -1,0 +1,42 @@
+<%- include("partials/header") -%>
+
+    <h1 style="text-align: center;">Home</h1>
+    <p style="font-size: medium;">
+        <%= homeStartingContent %>
+    </p>
+
+    <h1 style="text-align: center; margin-top: 90px;">Blogs</h1>
+    <div class="album py-5 bg-body-tertiary">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <!-- ---------------  -->
+                <% for(let i=0;i<Blogpost.length;i++){ %>
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img class="bd-placeholder-img card-img-top" width="100%" height="225"
+                            src="https://source.unsplash.com/1600x600/?<%=Blogpost[i].title%>,macbook" role="img" aria-label="Placeholder: Thumbnail"
+                            preserveAspectRatio="xMidYMid slice" focusable="false">
+                            <title>Placeholder</title>
+                            <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
+                                dy=".3em"><h3 style="text-align: center;"><%= Blogpost[i].title %></h3></text>
+                        </svg>
+                        <div class="card-body">
+                            <p class="card-text"><%= Blogpost[i].content.substring(0,400) + "....." %></p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-outline-danger"><a style="color: black;" href="/posts/<%= Blogpost[i].title %>">View</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%}%>
+            </div>
+        </div>
+    </div>
+
+
+    
+       
+
+            <%- include("partials/footer") -%>
