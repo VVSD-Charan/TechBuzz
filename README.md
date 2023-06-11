@@ -24,15 +24,15 @@
 
 <strong>Note : </strong> These images have been taken from mobile view to give describe about  responsiveness of website and to fit entire page in a picture.
 
-Home page 
+<h3>Home page</h3> <br><br>
 
 ![image](https://github.com/VVSD-Charan/TechBuzz/assets/105978561/6736d77b-9144-48fd-8d45-99d8b615555a)
 
-Blog page
+<br><br><h3>Blog page</h3><br><br>
 
 ![image](https://github.com/VVSD-Charan/TechBuzz/assets/105978561/4dc9eb21-10f3-4fef-8688-3806083d3996)
 
-Page to create a new blog
+<br><br><h3>Page to create a new blog</h3><br><br>
 
 ![Screenshot (90)](https://github.com/VVSD-Charan/TechBuzz/assets/105978561/431db257-87bb-4efe-b1ce-714011d93893)
 
