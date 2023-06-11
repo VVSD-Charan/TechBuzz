@@ -1,18 +1,28 @@
 <%- include("partials/header") -%>
 
-<h1> <%= Blogpost.title %> </h1>
-<p style="font-size: medium;"> <%= Blogpost.content %> </p>
-
-<form action="/post" method="post">
-    <h1>Update Blog</h1>
-    <div class="form-group">
-        <input class="form-control" type="text" value="<%= Blogpost.title %>" name="uTitle" style="display: none;">
+    <div>
+        <h1 style="text-align: center; margin: 40px 0;">
+            <%= Blogpost.title %>
+        </h1>
+        <div style="width: 70%; margin: 0 15%;">
+            <p style="font-size: medium;">
+                <%= Blogpost.content %>
+            </p>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="uContent">Enter updated information</label>
-        <textarea  class="form-control" name="uContent" id="uContent" cols="30" rows="5"></textarea>
-    </div>
-    <button class="btn btn-primary" type="submit">Update</button>
-</form>
 
-<%- include("partials/footer") -%>
+    <form action="/post" method="post">
+        <h1 style="text-align: center; margin: 40px 0;">Update Blog</h1>
+        <div class="form-group">
+            <input class="form-control" type="text" value="<%= Blogpost.title %>" name="uTitle" style="display: none;">
+        </div>
+        <div class="form-group" style="width: 50%; margin: 0 25%;">
+            <label for="uContent">Enter updated content</label>
+            <textarea class="form-control" name="uContent" id="uContent" cols="25" rows="5"></textarea>
+        </div>
+        <div style="text-align: center; margin-top: 30px;">
+            <button style="padding: 10px 20px;" class="btn btn-primary" type="submit">Update Blog</button>
+        </div>
+    </form>
+
+    <%- include("partials/footer") -%>

@@ -10,7 +10,13 @@ const _ =require("lodash");
 const mongoose=require('mongoose');
 
 //Home display content
-const homeStartingContent = `Welcome to TechBuzz, your ultimate destination for staying up-to-date with the latest trends in technology. Our blog is dedicated to providing insightful and engaging content that covers a wide range of topics related to trending technologies.At TechBuzz, we believe that technology is constantly evolving, and it's essential to stay informed about the latest developments shaping our digital world. Our team of passionate tech enthusiasts and industry experts curates thought-provoking articles, in-depth analyses, and practical guides to help you navigate the ever-changing landscape of technology.`;
+const homeStartingContent = `Welcome to TechBuzz, your ultimate destination for staying up-to-date with the latest trends in technology. Our blog is dedicated to providing insightful and engaging content that covers a wide range of topics related to trending technologies.
+
+At TechBuzz, we believe that technology is constantly evolving, and it's essential to stay informed about the latest developments shaping our digital world. Our team of passionate tech enthusiasts and industry experts curates thought-provoking articles, in-depth analyses, and practical guides to help you navigate the ever-changing landscape of technology.
+
+Whether you're a seasoned tech professional or just starting your journey into the digital realm, TechBuzz offers something for everyone. From artificial intelligence and blockchain to virtual reality and cybersecurity, we delve into the most exciting and disruptive technologies of our time. Our aim is to simplify complex concepts and make them accessible to our readers, empowering them to embrace the possibilities and opportunities that technology presents.
+
+Join our vibrant community of tech enthusiasts, innovators, and curious minds as we explore groundbreaking inventions, emerging trends, and transformative ideas. Get ready to immerse yourself in the world of TechBuzz, where knowledge meets inspiration and technology takes center stage.`;
 
 // About page display content 
 const aboutContent = `Welcome to TechBuzz, your ultimate destination for staying up-to-date with the latest trends in technology. Our blog is dedicated to providing insightful and engaging content that covers a wide range of topics related to trending technologies.
@@ -147,4 +153,21 @@ app.post('/post',(request,response)=>{
    });
 
    response.redirect('/');
+});
+
+app.post('/search',(request,response)=>{
+   var topic=request.body.topic;
+   topic=_.lowerCase(topic);
+
+   Post.findOne({titlelc:topic}).then((Blogpost)=>{
+      if(Blogpost.title==null){
+         response.redirect('/');
+         window.alert("No such Blog. Create a blog");
+      }else{
+         response.render('post',{Blogpost});
+      }
+   }).catch((err)=>{
+      console.log("No blog on such topic");
+      response.redirect('/');
+   });
 });
